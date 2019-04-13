@@ -3,7 +3,8 @@
 '''Even or odd number''' 
 
 def even_or_odd(number):
-    if number % 2 == 0:
+   
+   if number % 2 == 0:
         print("odd number")
     else:
         print("even number")
