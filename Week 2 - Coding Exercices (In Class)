@@ -1,0 +1,270 @@
+mysql> show tables;
+ERROR 1046 (3D000): No database selected
+mysql> use employees
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables
+    -> show tables;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'show tables' at line 2
+mysql> show tables;
++----------------------+
+| Tables_in_employees  |
++----------------------+
+| current_dept_emp     |
+| departments          |
+| dept_emp             |
+| dept_emp_latest_date |
+| dept_manager         |
+| employees            |
+| salaries             |
+| titles               |
++----------------------+
+8 rows in set (0.02 sec)
+
+mysql> CREATE TABLE course
+    -> course_id
+    -> course_name
+    -> course_descrition
+    -> 
+    -> 
+    -> CREATE TABLE course(
+    -> show tables
+    -> show tables;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'course_id
+course_name
+course_descrition
+
+
+CREATE TABLE course(
+show tables
+show ' at line 2
+mysql> show tables;
++----------------------+
+| Tables_in_employees  |
++----------------------+
+| current_dept_emp     |
+| departments          |
+| dept_emp             |
+| dept_emp_latest_date |
+| dept_manager         |
+| employees            |
+| salaries             |
+| titles               |
++----------------------+
+8 rows in set (0.01 sec)
+
+mysql> CREATE TABLE course;
+ERROR 1113 (42000): A table must have at least 1 column
+mysql> CREATE TABLE course
+    -> course id;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'course id' at line 2
+mysql> CREATE TABLE course
+    -> INSERT INTO course (course_id)
+    -> INSERT INTO course (course_name);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'INSERT INTO course (course_id)
+INSERT INTO course (course_name)' at line 2
+mysql> show tables;
++----------------------+
+| Tables_in_employees  |
++----------------------+
+| current_dept_emp     |
+| departments          |
+| dept_emp             |
+| dept_emp_latest_date |
+| dept_manager         |
+| employees            |
+| salaries             |
+| titles               |
++----------------------+
+8 rows in set (0.03 sec)
+
+mysql> CREATE TABLE course(id INTEGER PRIMARY KEY,course_name VARCHAR(50) not null)
+    -> CREATE TABLE course(id INTEGER PRIMARY KEY,course_name VARCHAR(50) not null);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CREATE TABLE course(id INTEGER PRIMARY KEY,course_name VARCHAR(50) not null)' at line 2
+mysql> CREATE TABLE course(id INTEGER PRIMARY KEY);
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> show tables;
++----------------------+
+| Tables_in_employees  |
++----------------------+
+| course               |
+| current_dept_emp     |
+| departments          |
+| dept_emp             |
+| dept_emp_latest_date |
+| dept_manager         |
+| employees            |
+| salaries             |
+| titles               |
++----------------------+
+9 rows in set (0.00 sec)
+
+mysql> INSERT INTO course(course_id,course_name);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> SELECT*
+    -> SELECT*^C
+mysql> SELECT * from course;
+Empty set (0.02 sec)
+
+mysql> INSERT INTO course (course_id)
+    -> INSERT INTO course (course_id);^C
+mysql> INSERT INTO course (course_id) VALUES(100);
+ERROR 1054 (42S22): Unknown column 'course_id' in 'field list'
+mysql> INSERT INTO course (id) VALUES(100);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> SELECT course
+    -> SELECT course;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT course' at line 2
+mysql> SELECT * from course
+    -> SELECT * from course;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT * from course' at line 2
+mysql> SELECT * from course;
++-----+
+| id  |
++-----+
+| 100 |
++-----+
+1 row in set (0.02 sec)
+
+mysql> ALTER TABLE course add course_name VARCHAR(50);
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * from course;
++-----+-------------+
+| id  | course_name |
++-----+-------------+
+| 100 | NULL        |
++-----+-------------+
+1 row in set (0.00 sec)
+
+mysql> ALTER TABLE course add course_description VARCHAR(100);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * from course;
++-----+-------------+--------------------+
+| id  | course_name | course_description |
++-----+-------------+--------------------+
+| 100 | NULL        | NULL               |
++-----+-------------+--------------------+
+1 row in set (0.00 sec)
+
+mysql> ALTER TABLE course add course_day VARCHAR(50);
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * from course;
++-----+-------------+--------------------+------------+
+| id  | course_name | course_description | course_day |
++-----+-------------+--------------------+------------+
+| 100 | NULL        | NULL               | NULL       |
++-----+-------------+--------------------+------------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO course(id,course_name,course_description,course_day) VALUES(1250,'Storage
+    '> INSERT INTO course(id,course_name,course_description,course_day) VALUES(1250,'Storage','blabla','Sunday');
+    '> ^C
+mysql> INSERT INTO course(id,course_name,course_description,course_day) VALUES(1250,'Storage','blabla','Sunday');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> SELECT * from course;
++------+-------------+--------------------+------------+
+| id   | course_name | course_description | course_day |
++------+-------------+--------------------+------------+
+|  100 | NULL        | NULL               | NULL       |
+| 1250 | Storage     | blabla             | Sunday     |
++------+-------------+--------------------+------------+
+2 rows in set (0.00 sec)
+
+mysql> ^C
+mysql> SELECT id,course_name FROM course;
++------+-------------+
+| id   | course_name |
++------+-------------+
+|  100 | NULL        |
+| 1250 | Storage     |
++------+-------------+
+2 rows in set (0.01 sec)
+
+mysql> UPDATE course SET course_name='storage 2'
+    -> UPDATE course SET course_name='storage 2';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'UPDATE course SET course_name='storage 2'' at line 2
+mysql> UPDATE course SET course_name='storage 2';
+Query OK, 2 rows affected (0.02 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> Select * from course
+    -> Select * from course;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Select * from course' at line 2
+mysql> Select * from course;
++------+-------------+--------------------+------------+
+| id   | course_name | course_description | course_day |
++------+-------------+--------------------+------------+
+|  100 | storage 2   | NULL               | NULL       |
+| 1250 | storage 2   | blabla             | Sunday     |
++------+-------------+--------------------+------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * from course
+    -> WHERE id=100;
++-----+-------------+--------------------+------------+
+| id  | course_name | course_description | course_day |
++-----+-------------+--------------------+------------+
+| 100 | storage 2   | NULL               | NULL       |
++-----+-------------+--------------------+------------+
+1 row in set (0.02 sec)
+
+mysql> UPDATE course 
+    -> SET id=100,course_name='storage';
+ERROR 1062 (23000): Duplicate entry '100' for key 'PRIMARY'
+mysql> UPDATE course(id=100)
+    -> course_name='storage';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(id=100)
+course_name='storage'' at line 1
+mysql> UPDATE course(id=100) course_name='storage';^C
+mysql> show tables;
++----------------------+
+| Tables_in_employees  |
++----------------------+
+| course               |
+| current_dept_emp     |
+| departments          |
+| dept_emp             |
+| dept_emp_latest_date |
+| dept_manager         |
+| employees            |
+| salaries             |
+| titles               |
++----------------------+
+9 rows in set (0.02 sec)
+
+mysql> SELECT salary INT FROM salaries;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'INT FROM salaries' at line 1
+mysql> SELECT salary from salaries;
+
+
+
+
+
+mysql> SELECT * FROM employees
+    -> WHERE salary=55003;
+ERROR 1054 (42S22): Unknown column 'salary' in 'where clause'
+mysql> SELECT last_name
+    -> SELECT top 10 
+    -> FrO^C
+mysql> SELECT top 10
+    -> FROM salaries;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '10
+FROM salaries' at line 1
+mysql> SELECT * from salaries;
+
+
+
+mysql> SELECT titles.title,employees.first_name,employees.last_name FROM titles INNER JOIN employees ON titles.emp_no=employees.emp_no WHERE titles.title='engineer';
+
+
