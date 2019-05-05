@@ -1,9 +1,9 @@
-''Return all salaries that are between 40000 and 60000
+#Return all salaries that are between 40000 and 60000
 
-Select all employees hired after 01-01-1995
+#Select all employees hired after 01-01-1995
 
-Select all the valid titles names (with to_date = 01-01-9999). Add an extra column
+#Select all the valid titles names (with to_date = 01-01-9999). Add an extra column
 written “valid” for the ones with to_date = 01-01-9999, and “not valid” for the ones with
 different to_date values
 
-Select all titles where title is equal to engineer
+#Select all titles where title is equal to engineer
